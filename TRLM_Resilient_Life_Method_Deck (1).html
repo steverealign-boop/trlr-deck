@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>The Resilient Life Method™ — Steve Ashby</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --physical:   #C8480A;
+    --biological: #157A48;
+    --cognitive:  #0868A0;
+    --emotional:  #6828A8;
+    --recovery:   #087878;
+    --phys-bg:    #FFF2EA;
+    --bio-bg:     #EBFAF3;
+    --cog-bg:     #EAF3FB;
+    --emot-bg:    #F4EAFB;
+    --rec-bg:     #EAF8F8;
+    --base:       #F8F6F2;
+    --white:      #FFFFFF;
+    --text:       #181626;
+    --muted:      #56547A;
+    --border:     #E0DDF0;
+  }
+
+  html, body {
+    height: 100%; width: 100%;
+    background: var(--base);
+    font-family: 'DM Sans', sans-serif;
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+  }
+
+  #deck {
+    position: fixed; inset: 0;
+    display: flex; align-items: stretch;
+    transition: transform 0.5s cubic-bezier(0.77,0,0.18,1);
+  }
+
+  .slide {
+    min-width: 100vw; width: 100vw; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: flex-start;
+    padding: clamp(18px,3.5vw,44px) clamp(20px,5vw,52px) 72px;
+    position: relative; overflow: hidden;
+    background: var(--base);
+  }
+  .slide > * { position: relative; z-index: 1; }
+
+  #progress {
+    position: fixed; top: 0; left: 0; height: 4px;
+    background: linear-gradient(90deg, var(--physical), var(--emotional));
+    transition: width .4s cubic-bezier(.77,0,.18,1); z-index: 101;
+  }
+
+  .slide-tag {
+    font-size: 11px; font-weight: 700; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+  }
+
+  /* ══ COVER ═══════════════════════════════════════════════════ */
+  #s0 {
+    background: linear-gradient(148deg, #181626 0%, #2A1C48 100%);
+    justify-content: center;
+  }
+  #s0 .eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: .22em;
+    text-transform: uppercase; color: var(--physical); margin-bottom: 14px;
+  }
+  #s0 h1 {
+    font-size: clamp(28px,6.5vw,56px); font-weight: 800;
+    line-height: 1.1; color: #fff; margin-bottom: 12px;
+  }
+  #s0 h1 em { font-style: italic; color: var(--physical); }
+  #s0 .tagline {
+    font-size: clamp(14px,2vw,17px); color: rgba(255,255,255,.6);
+    line-height: 1.65; max-width: 400px; margin-bottom: 28px;
+  }
+  #s0 .tagline strong { color: #fff; font-weight: 700; }
+  #s0 .author { display: flex; align-items: center; gap: 13px; margin-bottom: 36px; }
+  #s0 .author-avatar {
+    width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0;
+    background: linear-gradient(135deg, var(--physical), #8A2000);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 19px; font-weight: 800; color: white;
+  }
+  #s0 .author-name { font-size: 15px; font-weight: 700; color: #fff; }
+  #s0 .author-co   { font-size: 12px; color: rgba(255,255,255,.45); margin-top: 2px; }
+  #s0 .pillars-preview { display: flex; gap: clamp(10px,2.5vw,22px); flex-wrap: wrap; }
+  #s0 .pip {
+    display: flex; align-items: center; gap: 6px;
+    font-size: 12px; color: rgba(255,255,255,.5); font-weight: 600;
+  }
+  #s0 .pip span { width: 8px; height: 8px; border-radius: 50%; }
+
+  /* ══ PHILOSOPHY ══════════════════════════════════════════════ */
+  #s1 { background: #EDF3F9; }
+  #s1 .big-quote {
+    font-size: clamp(19px,3.5vw,28px); font-weight: 800;
+    line-height: 1.25; color: var(--text); max-width: 560px; margin-bottom: 16px;
+  }
+  #s1 .big-quote em { font-style: italic; color: var(--cognitive); }
+  #s1 .phil-body {
+    font-size: clamp(15px,2vw,17px); color: var(--muted);
+    line-height: 1.75; max-width: 560px;
+    border-left: 4px solid var(--physical);
+    padding-left: 16px; margin-bottom: 18px;
+  }
+  #s1 .pull-quote {
+    background: white; border-radius: 14px; border: 1px solid var(--border);
+    padding: 18px 22px; max-width: 540px;
+    font-size: clamp(15px,2vw,17px); font-weight: 600; font-style: italic;
+    color: var(--text); line-height: 1.5;
+    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  }
+  #s1 .pull-quote cite {
+    display: block; margin-top: 8px; font-size: 12px;
+    font-style: normal; font-weight: 700; color: var(--muted); letter-spacing: .05em;
+  }
+
+  /* ══ PATHWAYS ════════════════════════════════════════════════ */
+  #s-pathways { background: #FDF5EE; }
+  #s-water    { background: #EEF5FC; }
+
+  .pathways-heading {
+    font-size: clamp(18px,3.2vw,26px); font-weight: 800;
+    line-height: 1.2; color: var(--text); margin-bottom: 5px;
+  }
+  .pathways-heading em { font-style: italic; color: var(--physical); }
+  #s-water .pathways-heading em { color: var(--cognitive); }
+
+  .pathways-intro {
+    font-size: clamp(14px,1.9vw,16px); color: var(--muted);
+    line-height: 1.6; max-width: 540px; margin-bottom: 12px;
+  }
+
+  .fragility-cards {
+    display: flex; flex-direction: column; gap: 8px;
+    width: 100%; max-width: 560px; margin-bottom: 12px;
+  }
+  .frag-card {
+    display: flex; align-items: center; gap: 14px;
+    background: white; border-radius: 12px; padding: 14px 18px;
+    border: 1px solid var(--border); box-shadow: 0 1px 5px rgba(0,0,0,.05);
+  }
+  .frag-icon  { font-size: 24px; flex-shrink: 0; }
+  .frag-label { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
+  .frag-desc  { font-size: 13px; color: var(--muted); }
+
+  .friendship-reframe {
+    display: flex; gap: 13px; align-items: flex-start;
+    background: white; border-radius: 14px;
+    border-left: 4px solid var(--cognitive);
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 15px 18px; max-width: 560px; width: 100%;
+    box-shadow: 0 1px 5px rgba(0,0,0,.05);
+  }
+  .reframe-icon { font-size: 24px; flex-shrink: 0; }
+  .friendship-reframe p {
+    font-size: clamp(14px,1.8vw,16px); color: var(--muted); line-height: 1.65;
+  }
+  .friendship-reframe strong { color: var(--text); font-weight: 700; }
+
+  .options-grid {
+    display: flex; flex-wrap: wrap; gap: 9px;
+    max-width: 560px; width: 100%; margin-bottom: 14px;
+  }
+  .option-pill {
+    padding: 11px 18px; border-radius: 100px;
+    background: white; border: 1.5px solid var(--border);
+    font-size: 15px; font-weight: 600; color: var(--text);
+    box-shadow: 0 1px 4px rgba(0,0,0,.05);
+  }
+
+  .water-quote {
+    width: 100%; max-width: 560px; background: white; border-radius: 16px;
+    border-left: 4px solid var(--cognitive);
+    border-top: 1px solid var(--border);
+    border-right: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 18px 22px; margin-bottom: 14px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+  }
+  .water-drop { font-size: 26px; margin-bottom: 8px; }
+  .water-text {
+    font-size: clamp(18px,3.2vw,26px); font-weight: 800; font-style: italic;
+    color: var(--text); line-height: 1.2; margin-bottom: 10px;
+  }
+  .water-sub {
+    font-size: clamp(14px,1.8vw,16px); color: var(--muted); line-height: 1.65;
+  }
+  .water-sub strong { color: var(--text); font-weight: 700; }
+
+  .pathway-nodes {
+    display: flex; align-items: center; flex-wrap: wrap; gap: 7px;
+    max-width: 560px; width: 100%;
+  }
+  .p-node {
+    padding: 8px 16px; border-radius: 100px; font-size: 13px; font-weight: 700;
+    background: white; border: 2px solid var(--c); color: var(--c);
+  }
+  .p-arrow { color: var(--muted); font-size: 16px; opacity: .4; }
+
+  /* ══ PILLAR SLIDES ═══════════════════════════════════════════ */
+  #s2 { background: var(--phys-bg); }
+  #s3 { background: var(--bio-bg);  }
+  #s4 { background: var(--cog-bg);  }
+  #s5 { background: var(--emot-bg); }
+  #s6 { background: var(--rec-bg);  }
+
+  .pillar-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px; border-radius: 100px; font-size: 11px;
+    font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
+    margin-bottom: 7px; background: white; border: 2px solid;
+  }
+  .pillar-badge .dot { width: 7px; height: 7px; border-radius: 50%; }
+
+  .pillar-title {
+    font-size: clamp(18px,3.2vw,26px); font-weight: 800;
+    line-height: 1.15; color: var(--text); margin-bottom: 3px;
+  }
+  .pillar-subtitle {
+    font-size: clamp(13px,1.7vw,15px); color: var(--muted);
+    font-weight: 400; margin-bottom: 10px; line-height: 1.45; max-width: 520px;
+  }
+
+  .themes-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 8px; width: 100%; max-width: 580px;
+  }
+  @media (max-width: 380px) { .themes-grid { grid-template-columns: 1fr; } }
+
+  .theme-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    background: white; border-radius: 12px;
+    padding: 13px 14px; border: 1px solid var(--border);
+    box-shadow: 0 1px 4px rgba(0,0,0,.05);
+  }
+  .theme-check {
+    width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; font-size: 15px;
+  }
+  .theme-text {
+    font-size: clamp(13px,1.7vw,15px); color: var(--text);
+    font-weight: 500; line-height: 1.4;
+  }
+
+  .activities-row {
+    margin-top: 9px; display: flex; gap: 8px; flex-wrap: wrap; max-width: 580px;
+  }
+  .activity-chip {
+    padding: 8px 16px; border-radius: 100px; font-size: 13px; font-weight: 600;
+    background: white; border: 1.5px solid var(--border); color: var(--muted);
+  }
+
+  /* ══ CTA ═════════════════════════════════════════════════════ */
+  #s7 {
+    background: linear-gradient(148deg, #181626 0%, #2A1C48 100%);
+    justify-content: center; align-items: center;
+  }
+  #s7 h2 {
+    font-size: clamp(22px,4.5vw,36px); font-weight: 800;
+    color: white; text-align: center; line-height: 1.2; margin-bottom: 6px;
+  }
+  #s7 .sub {
+    font-size: clamp(14px,2vw,16px); color: rgba(255,255,255,.6);
+    text-align: center; margin-bottom: 18px;
+  }
+  #s7 .sub em { font-style: italic; color: rgba(255,255,255,.85); }
+  #s7 .pillars-row {
+    display: flex; gap: 7px; margin-bottom: 18px; flex-wrap: wrap; justify-content: center;
+  }
+  #s7 .p-tag {
+    padding: 7px 14px; border-radius: 100px; font-size: 12px; font-weight: 700;
+    background: rgba(255,255,255,.1); color: white; border: 1px solid rgba(255,255,255,.2);
+  }
+  #s7 .steps {
+    display: flex; flex-direction: column; gap: 10px;
+    max-width: 460px; width: 100%; margin-bottom: 22px;
+  }
+  #s7 .step {
+    display: flex; align-items: center; gap: 14px;
+    background: rgba(255,255,255,.07); border-radius: 14px;
+    padding: 15px 18px; border: 1px solid rgba(255,255,255,.1);
+  }
+  #s7 .step-num {
+    width: 34px; height: 34px; border-radius: 50%; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800; font-size: 16px; color: white;
+  }
+  #s7 .step-text {
+    font-size: clamp(13px,1.8vw,15px); color: rgba(255,255,255,.85); line-height: 1.45;
+  }
+  #s7 .cta-btn {
+    display: inline-block; padding: 16px 34px; border-radius: 100px;
+    font-size: 14px; font-weight: 700; letter-spacing: .06em;
+    text-decoration: none; text-transform: uppercase;
+    background: linear-gradient(135deg, var(--physical), #8A2000);
+    color: white; border: none; box-shadow: 0 6px 22px rgba(200,72,10,.55);
+    transition: transform .2s, box-shadow .2s;
+  }
+  #s7 .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(200,72,10,.65); }
+  #s7 .realign { font-size: 11px; color: rgba(255,255,255,.3); margin-top: 12px; letter-spacing: .06em; }
+
+  /* ══ NAV ═════════════════════════════════════════════════════ */
+  #nav {
+    position: fixed; bottom: 0; left: 0; right: 0;
+    padding: 12px 20px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+    z-index: 100;
+  }
+  .nav-btn {
+    width: 42px; height: 42px; border-radius: 50%;
+    cursor: pointer; font-size: 17px;
+    display: flex; align-items: center; justify-content: center;
+    transition: all .2s; -webkit-tap-highlight-color: transparent; border: none;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+  }
+  .nav-btn:disabled { opacity: .25; cursor: default; }
+  #dots { display: flex; gap: 7px; align-items: center; }
+  .dot-btn {
+    width: 7px; height: 7px; border-radius: 50%; border: none; cursor: pointer;
+    padding: 0; transition: all .3s; -webkit-tap-highlight-color: transparent;
+  }
+  .dot-btn.active { width: 22px; border-radius: 100px; }
+
+  /* ══ ANIMATIONS ══════════════════════════════════════════════ */
+  .anim { opacity: 0; transform: translateY(16px); }
+  .slide.visible .anim { animation: fadeUp .5s forwards; }
+  .slide.visible .anim:nth-child(1) { animation-delay: .07s; }
+  .slide.visible .anim:nth-child(2) { animation-delay: .16s; }
+  .slide.visible .anim:nth-child(3) { animation-delay: .26s; }
+  .slide.visible .anim:nth-child(4) { animation-delay: .35s; }
+  .slide.visible .anim:nth-child(5) { animation-delay: .43s; }
+  .slide.visible .anim:nth-child(6) { animation-delay: .50s; }
+  .slide.visible .anim:nth-child(7) { animation-delay: .56s; }
+  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+
+  #swipe-hint {
+    position: fixed; bottom: 66px; left: 50%; transform: translateX(-50%);
+    font-size: 11px; letter-spacing: .15em; text-transform: uppercase;
+    pointer-events: none; z-index: 100; white-space: nowrap;
+    animation: fadeHint 3.5s forwards 1.5s; opacity: 0;
+  }
+  @keyframes fadeHint { 0%{opacity:0} 20%{opacity:1} 80%{opacity:1} 100%{opacity:0} }
+
+  .watermark {
+    position: absolute; bottom: 62px; right: clamp(16px,4vw,32px);
+    font-size: 10px; letter-spacing: .1em; text-transform: uppercase;
+    font-weight: 600; z-index: 1; opacity: .25; color: var(--text);
+  }
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div id="deck">
+
+  <!-- COVER -->
+  <section class="slide" id="s0">
+    <p class="eyebrow anim">Realign Coaching presents</p>
+    <h1 class="anim">The <em>Resilient</em><br>Life Method™</h1>
+    <p class="tagline anim"><strong>Architecture, not motivation.</strong><br>A 5-Pillar Framework for Building a Life That Holds.</p>
+    <div class="author anim">
+      <div class="author-avatar">S</div>
+      <div>
+        <div class="author-name">Steve Ashby</div>
+        <div class="author-co">Realign Coaching · realigncoaching.com</div>
+      </div>
+    </div>
+    <div class="pillars-preview anim">
+      <div class="pip"><span style="background:var(--physical)"></span>Physical</div>
+      <div class="pip"><span style="background:var(--biological)"></span>Biological</div>
+      <div class="pip"><span style="background:var(--cognitive)"></span>Cognitive</div>
+      <div class="pip"><span style="background:var(--emotional)"></span>Emotional</div>
+      <div class="pip"><span style="background:var(--recovery)"></span>Recovery</div>
+    </div>
+  </section>
+
+  <!-- PHILOSOPHY -->
+  <section class="slide" id="s1">
+    <p class="slide-tag anim">The philosophy</p>
+    <p class="big-quote anim">Real resilience is <em>architecture,<br>not motivation.</em></p>
+    <p class="phil-body anim">Most resilience training is built on the wrong premise. You need to toughen up, push through, and never let them see you sweat. That's not resilience. That's damage with a good PR strategy.</p>
+    <div class="pull-quote anim">
+      "You don't need to be a machine. You need to be well-engineered."
+      <cite>Steve Ashby</cite>
+    </div>
+    <div class="watermark">realigncoaching.com</div>
+  </section>
+
+  <!-- PATHWAYS: PROBLEM -->
+  <section class="slide" id="s-pathways">
+    <p class="slide-tag anim">The core idea</p>
+    <h2 class="pathways-heading anim">One way of coping<br>makes you <em>fragile.</em></h2>
+    <p class="pathways-intro anim">One identity. One response to challenge. One person to lean on. When that single path closes, you have nowhere to go.</p>
+    <div class="fragility-cards anim">
+      <div class="frag-card">
+        <span class="frag-icon">🧍</span>
+        <div><p class="frag-label">One coping strategy</p><p class="frag-desc">When it fails, you're exposed</p></div>
+      </div>
+      <div class="frag-card">
+        <span class="frag-icon">🪪</span>
+        <div><p class="frag-label">One identity</p><p class="frag-desc">Threaten it and you crumble</p></div>
+      </div>
+      <div class="frag-card">
+        <span class="frag-icon">👤</span>
+        <div><p class="frag-label">One person for everything</p><p class="frag-desc">That relationship carries impossible weight</p></div>
+      </div>
+    </div>
+    <div class="friendship-reframe anim">
+      <span class="reframe-icon">👥</span>
+      <p>Think about friendship. Rely on one person for everything and life becomes fragile. <strong>Several genuine friendships? You're held.</strong> Each supports you differently. The others carry you when one can't.</p>
+    </div>
+    <div class="watermark">realigncoaching.com</div>
+  </section>
+
+  <!-- PATHWAYS: ANSWER -->
+  <section class="slide" id="s-water">
+    <p class="slide-tag anim">The answer</p>
+    <h2 class="pathways-heading anim">Cultivate <em>options.</em><br>Become adaptable.</h2>
+    <p class="pathways-intro anim">Different skills. Different perspectives. Different relationships. Different ways of thinking. Build across all of these and you stop being brittle.</p>
+    <div class="options-grid anim">
+      <div class="option-pill">🛠 Skills</div>
+      <div class="option-pill">🔭 Perspectives</div>
+      <div class="option-pill">🤝 Relationships</div>
+      <div class="option-pill">🧩 Ways of thinking</div>
+    </div>
+    <div class="water-quote anim">
+      <div class="water-drop">💧</div>
+      <p class="water-text">"Water finds its own course."</p>
+      <p class="water-sub">It doesn't force. It doesn't stop. When one path closes, it finds another. <strong>That's true resilience.</strong></p>
+    </div>
+    <div class="pathway-nodes anim">
+      <div class="p-node" style="--c:var(--physical)">Physical</div>
+      <div class="p-arrow">→</div>
+      <div class="p-node" style="--c:var(--biological)">Biological</div>
+      <div class="p-arrow">→</div>
+      <div class="p-node" style="--c:var(--cognitive)">Cognitive</div>
+      <div class="p-arrow">→</div>
+      <div class="p-node" style="--c:var(--emotional)">Emotional</div>
+      <div class="p-arrow">→</div>
+      <div class="p-node" style="--c:var(--recovery)">Recovery</div>
+    </div>
+    <div class="watermark">realigncoaching.com</div>
+  </section>
+
+  <!-- PHYSICAL -->
+  <section class="slide" id="s2">
+    <div class="pillar-badge anim" style="color:var(--physical);border-color:var(--physical)">
+      <span class="dot" style="background:var(--physical)"></span>Pillar One
+    </div>
+    <h2 class="pillar-title anim">Physical Resilience</h2>
+    <p class="pillar-subtitle anim">Your body is your primary asset. Invest accordingly.</p>
+    <div class="themes-grid anim">
+      <div class="theme-item"><span class="theme-check" style="background:rgba(200,72,10,.1)">⚡</span><span class="theme-text">Movement is your best return on investment</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(200,72,10,.1)">🔋</span><span class="theme-text">Understanding your energy systems</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(200,72,10,.1)">📅</span><span class="theme-text">Habits that fit around real work schedules</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(200,72,10,.1)">🧠</span><span class="theme-text">Physical capacity improves your decisions</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(200,72,10,.1)">🎯</span><span class="theme-text">Consistency beats intensity every time</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(200,72,10,.1)">📊</span><span class="theme-text">Your personal energy audit</span></div>
+    </div>
+    <div class="activities-row anim">
+      <span class="activity-chip">Personal energy audit</span>
+      <span class="activity-chip">Design a movement habit</span>
+    </div>
+    <div class="watermark">realigncoaching.com</div>
+  </section>
+
+  <!-- BIOLOGICAL -->
+  <section class="slide" id="s3">
+    <div class="pillar-badge anim" style="color:var(--biological);border-color:var(--biological)">
+      <span class="dot" style="background:var(--biological)"></span>Pillar Two
+    </div>
+    <h2 class="pillar-title anim">Biological Resilience</h2>
+    <p class="pillar-subtitle anim">Sleep, food and recovery are not luxuries. They're infrastructure.</p>
+    <div class="themes-grid anim">
+      <div class="theme-item"><span class="theme-check" style="background:rgba(21,122,72,.1)">🧬</span><span class="theme-text">The biology of stress inside your body</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(21,122,72,.1)">😴</span><span class="theme-text">Sleep architecture. Less is not a badge of honour.</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(21,122,72,.1)">🥗</span><span class="theme-text">Nutrition as performance fuel, not perfection</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(21,122,72,.1)">🔬</span><span class="theme-text">Inflammation and what you can do about it</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(21,122,72,.1)">📋</span><span class="theme-text">Annual health checks most men skip</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(21,122,72,.1)">💊</span><span class="theme-text">Hormones, markers and the full picture</span></div>
+    </div>
+    <div class="activities-row anim">
+      <span class="activity-chip">Sleep self-assessment</span>
+      <span class="activity-chip">One nutritional habit this week</span>
+    </div>
+    <div class="watermark">realigncoaching.com</div>
+  </section>
+
+  <!-- COGNITIVE -->
+  <section class="slide" id="s4">
+    <div class="pillar-badge anim" style="color:var(--cognitive);border-color:var(--cognitive)">
+      <span class="dot" style="background:var(--cognitive)"></span>Pillar Three
+    </div>
+    <h2 class="pillar-title anim">Cognitive Resilience</h2>
+    <p class="pillar-subtitle anim">How you think determines how you cope. And how you lead.</p>
+    <div class="themes-grid anim">
+      <div class="theme-item"><span class="theme-check" style="background:rgba(8,104,160,.1)">🧠</span><span class="theme-text">Cognitive load and why your brain gets tired</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(8,104,160,.1)">🔍</span><span class="theme-text">Recognising unhelpful thinking patterns early</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(8,104,160,.1)">💡</span><span class="theme-text">Staying sharp under sustained pressure</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(8,104,160,.1)">📚</span><span class="theme-text">Curiosity and learning for long-term resilience</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(8,104,160,.1)">⚡</span><span class="theme-text">Focus and the real cost of context-switching</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(8,104,160,.1)">🔄</span><span class="theme-text">A simple daily mental reset practice</span></div>
+    </div>
+    <div class="activities-row anim">
+      <span class="activity-chip">Identify top 2 cognitive drains</span>
+      <span class="activity-chip">Daily mental reset</span>
+    </div>
+    <div class="watermark">realigncoaching.com</div>
+  </section>
+
+  <!-- EMOTIONAL -->
+  <section class="slide" id="s5">
+    <div class="pillar-badge anim" style="color:var(--emotional);border-color:var(--emotional)">
+      <span class="dot" style="background:var(--emotional)"></span>Pillar Four
+    </div>
+    <h2 class="pillar-title anim">Emotional Resilience</h2>
+    <p class="pillar-subtitle anim">You don't need to feel less. You need to feel without being derailed.</p>
+    <div class="themes-grid anim">
+      <div class="theme-item"><span class="theme-check" style="background:rgba(104,40,168,.1)">🔥</span><span class="theme-text">Chronic stress quietly erodes everything</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(104,40,168,.1)">🫂</span><span class="theme-text">Loneliness and isolation are health risks, not just feelings</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(104,40,168,.1)">🗣️</span><span class="theme-text">Naming what you feel is an underrated skill</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(104,40,168,.1)">🤝</span><span class="theme-text">Genuine connection vs. performing wellness</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(104,40,168,.1)">💪</span><span class="theme-text">Vulnerability is a strength, not a weakness</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(104,40,168,.1)">❤️</span><span class="theme-text">Resilience is processing, not suppression</span></div>
+    </div>
+    <div class="activities-row anim">
+      <span class="activity-chip">Honest emotional check-in</span>
+      <span class="activity-chip">Map your support network</span>
+    </div>
+    <div class="watermark">realigncoaching.com</div>
+  </section>
+
+  <!-- RECOVERY -->
+  <section class="slide" id="s6">
+    <div class="pillar-badge anim" style="color:var(--recovery);border-color:var(--recovery)">
+      <span class="dot" style="background:var(--recovery)"></span>Pillar Five
+    </div>
+    <h2 class="pillar-title anim">Recovery Resilience</h2>
+    <p class="pillar-subtitle anim">Recovery is not the absence of work. It's what makes work possible.</p>
+    <div class="themes-grid anim">
+      <div class="theme-item"><span class="theme-check" style="background:rgba(8,120,120,.1)">🌿</span><span class="theme-text">What real recovery looks like. Not just holidays.</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(8,120,120,.1)">⚖️</span><span class="theme-text">Active vs. passive recovery. Both matter.</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(8,120,120,.1)">📆</span><span class="theme-text">Designing recovery into your week deliberately</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(8,120,120,.1)">🚨</span><span class="theme-text">Recognising your personal warning signs early</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(8,120,120,.1)">🔄</span><span class="theme-text">A sustainable rhythm on and off the clock</span></div>
+      <div class="theme-item"><span class="theme-check" style="background:rgba(8,120,120,.1)">🛡️</span><span class="theme-text">Your personal Plan B before you need it</span></div>
+    </div>
+    <div class="activities-row anim">
+      <span class="activity-chip">Personal recovery prescription</span>
+      <span class="activity-chip">Your earliest warning signs</span>
+    </div>
+    <div class="watermark">realigncoaching.com</div>
+  </section>
+
+  <!-- CTA -->
+  <section class="slide" id="s7">
+    <h2 class="anim">Your one next step.</h2>
+    <p class="sub anim">Not five. Not a transformation plan. <em>One thing.</em></p>
+    <div class="pillars-row anim">
+      <span class="p-tag">Physical</span><span class="p-tag">Biological</span>
+      <span class="p-tag">Cognitive</span><span class="p-tag">Emotional</span><span class="p-tag">Recovery</span>
+    </div>
+    <div class="steps anim">
+      <div class="step"><span class="step-num" style="background:var(--physical)">1</span><span class="step-text">Pick the one pillar that needs the most attention right now.</span></div>
+      <div class="step"><span class="step-num" style="background:var(--biological)">2</span><span class="step-text">Write down one specific, honest thing you'll do differently this week.</span></div>
+      <div class="step"><span class="step-num" style="background:var(--cognitive)">3</span><span class="step-text">Tell someone about it. Accountability is architecture too.</span></div>
+    </div>
+    <a class="cta-btn anim" href="https://realigncoaching.com" target="_blank">Join The Resilient Life Room</a>
+    <p class="realign anim">realigncoaching.com</p>
+  </section>
+
+</div>
+
+<div id="nav">
+  <button class="nav-btn" id="prev" onclick="go(-1)">←</button>
+  <div id="dots"></div>
+  <button class="nav-btn" id="next" onclick="go(1)">→</button>
+</div>
+<p id="swipe-hint">Swipe to navigate</p>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const total = slides.length;
+  let cur = 0, tx = 0, ty = 0;
+
+  const dotsEl = document.getElementById('dots');
+  slides.forEach((_, i) => {
+    const d = document.createElement('button');
+    d.className = 'dot-btn' + (i === 0 ? ' active' : '');
+    d.onclick = () => goTo(i);
+    dotsEl.appendChild(d);
+  });
+
+  function updateNav() {
+    const dark = ['s0','s7'].includes(slides[cur].id);
+    const btns = document.querySelectorAll('.nav-btn');
+    btns.forEach(b => {
+      b.style.cssText = dark
+        ? 'background:rgba(255,255,255,0.12);color:white;box-shadow:none;'
+        : 'background:white;color:#181626;box-shadow:0 2px 8px rgba(0,0,0,.1);';
+    });
+    document.querySelectorAll('.dot-btn').forEach(d => {
+      d.style.background = dark ? 'rgba(255,255,255,0.3)' : 'rgba(24,22,38,0.2)';
+    });
+    const act = document.querySelector('.dot-btn.active');
+    if (act) act.style.background = dark ? 'white' : '#181626';
+    document.getElementById('nav').style.background = dark
+      ? 'linear-gradient(transparent, rgba(24,22,38,.9))'
+      : 'linear-gradient(transparent, rgba(248,246,242,.98))';
+    document.getElementById('swipe-hint').style.color = dark
+      ? 'rgba(255,255,255,.3)' : 'rgba(24,22,38,.3)';
+  }
+
+  function goTo(n) {
+    slides[cur].classList.remove('visible');
+    cur = Math.max(0, Math.min(n, total - 1));
+    document.getElementById('deck').style.transform = `translateX(-${cur * 100}vw)`;
+    slides[cur].classList.add('visible');
+    document.querySelectorAll('.dot-btn').forEach((d,i) => d.classList.toggle('active', i === cur));
+    document.getElementById('prev').disabled = cur === 0;
+    document.getElementById('next').disabled = cur === total - 1;
+    document.getElementById('progress').style.width = `${((cur+1)/total)*100}%`;
+    updateNav();
+  }
+
+  function go(d) { goTo(cur + d); }
+
+  document.addEventListener('keydown', e => {
+    if (e.key==='ArrowRight'||e.key==='ArrowDown') go(1);
+    if (e.key==='ArrowLeft'||e.key==='ArrowUp') go(-1);
+  });
+  document.addEventListener('touchstart', e => { tx=e.touches[0].clientX; ty=e.touches[0].clientY; }, {passive:true});
+  document.addEventListener('touchend', e => {
+    const dx = tx - e.changedTouches[0].clientX;
+    const dy = Math.abs(ty - e.changedTouches[0].clientY);
+    if (Math.abs(dx)>40 && Math.abs(dx)>dy) go(dx>0?1:-1);
+  }, {passive:true});
+
+  goTo(0);
+</script>
+</body>
+</html>
