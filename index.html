@@ -46,7 +46,7 @@
     min-width: 100vw; width: 100vw; height: 100%;
     display: flex; flex-direction: column;
     align-items: flex-start;
-    padding: clamp(18px,3.5vw,44px) clamp(20px,5vw,52px) 72px;
+    padding: clamp(12px,2.5vw,36px) clamp(14px,4vw,44px) 66px;
     position: relative; overflow: hidden;
     background: var(--base);
   }
@@ -59,8 +59,8 @@
   }
 
   .slide-tag {
-    font-size: 11px; font-weight: 700; letter-spacing: .2em;
-    text-transform: uppercase; color: var(--muted); margin-bottom: 6px;
+    font-size: 10px; font-weight: 700; letter-spacing: .2em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 4px;
   }
 
   /* ══ COVER ═══════════════════════════════════════════════════ */
@@ -101,25 +101,25 @@
   /* ══ PHILOSOPHY ══════════════════════════════════════════════ */
   #s1 { background: #EDF3F9; }
   #s1 .big-quote {
-    font-size: clamp(19px,3.5vw,28px); font-weight: 800;
-    line-height: 1.25; color: var(--text); max-width: 560px; margin-bottom: 16px;
+    font-size: clamp(16px,3vw,24px); font-weight: 800;
+    line-height: 1.2; color: var(--text); max-width: 560px; margin-bottom: 10px;
   }
   #s1 .big-quote em { font-style: italic; color: var(--cognitive); }
   #s1 .phil-body {
-    font-size: clamp(15px,2vw,17px); color: var(--muted);
-    line-height: 1.75; max-width: 560px;
+    font-size: clamp(13px,1.8vw,15px); color: var(--muted);
+    line-height: 1.6; max-width: 560px;
     border-left: 4px solid var(--physical);
-    padding-left: 16px; margin-bottom: 18px;
+    padding-left: 12px; margin-bottom: 12px;
   }
   #s1 .pull-quote {
-    background: white; border-radius: 14px; border: 1px solid var(--border);
-    padding: 18px 22px; max-width: 540px;
-    font-size: clamp(15px,2vw,17px); font-weight: 600; font-style: italic;
-    color: var(--text); line-height: 1.5;
-    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    background: white; border-radius: 12px; border: 1px solid var(--border);
+    padding: 13px 16px; max-width: 540px;
+    font-size: clamp(13px,1.8vw,15px); font-weight: 600; font-style: italic;
+    color: var(--text); line-height: 1.45;
+    box-shadow: 0 2px 8px rgba(0,0,0,.06);
   }
   #s1 .pull-quote cite {
-    display: block; margin-top: 8px; font-size: 12px;
+    display: block; margin-top: 6px; font-size: 11px;
     font-style: normal; font-weight: 700; color: var(--muted); letter-spacing: .05em;
   }
 
@@ -128,85 +128,85 @@
   #s-water    { background: #EEF5FC; }
 
   .pathways-heading {
-    font-size: clamp(18px,3.2vw,26px); font-weight: 800;
-    line-height: 1.2; color: var(--text); margin-bottom: 5px;
+    font-size: clamp(16px,3vw,24px); font-weight: 800;
+    line-height: 1.2; color: var(--text); margin-bottom: 4px;
   }
   .pathways-heading em { font-style: italic; color: var(--physical); }
   #s-water .pathways-heading em { color: var(--cognitive); }
 
   .pathways-intro {
-    font-size: clamp(14px,1.9vw,16px); color: var(--muted);
-    line-height: 1.6; max-width: 540px; margin-bottom: 12px;
+    font-size: clamp(12px,1.7vw,14px); color: var(--muted);
+    line-height: 1.5; max-width: 540px; margin-bottom: 9px;
   }
 
   .fragility-cards {
-    display: flex; flex-direction: column; gap: 8px;
-    width: 100%; max-width: 560px; margin-bottom: 12px;
+    display: flex; flex-direction: column; gap: 6px;
+    width: 100%; max-width: 560px; margin-bottom: 9px;
   }
   .frag-card {
-    display: flex; align-items: center; gap: 14px;
-    background: white; border-radius: 12px; padding: 14px 18px;
-    border: 1px solid var(--border); box-shadow: 0 1px 5px rgba(0,0,0,.05);
+    display: flex; align-items: center; gap: 11px;
+    background: white; border-radius: 10px; padding: 10px 14px;
+    border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,.05);
   }
-  .frag-icon  { font-size: 24px; flex-shrink: 0; }
-  .frag-label { font-size: 15px; font-weight: 700; color: var(--text); margin-bottom: 2px; }
-  .frag-desc  { font-size: 13px; color: var(--muted); }
+  .frag-icon  { font-size: 20px; flex-shrink: 0; }
+  .frag-label { font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 1px; }
+  .frag-desc  { font-size: 12px; color: var(--muted); }
 
   .friendship-reframe {
-    display: flex; gap: 13px; align-items: flex-start;
-    background: white; border-radius: 14px;
+    display: flex; gap: 10px; align-items: flex-start;
+    background: white; border-radius: 12px;
     border-left: 4px solid var(--cognitive);
     border-top: 1px solid var(--border);
     border-right: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-    padding: 15px 18px; max-width: 560px; width: 100%;
-    box-shadow: 0 1px 5px rgba(0,0,0,.05);
+    padding: 11px 14px; max-width: 560px; width: 100%;
+    box-shadow: 0 1px 4px rgba(0,0,0,.05);
   }
-  .reframe-icon { font-size: 24px; flex-shrink: 0; }
+  .reframe-icon { font-size: 20px; flex-shrink: 0; }
   .friendship-reframe p {
-    font-size: clamp(14px,1.8vw,16px); color: var(--muted); line-height: 1.65;
+    font-size: clamp(12px,1.6vw,14px); color: var(--muted); line-height: 1.55;
   }
   .friendship-reframe strong { color: var(--text); font-weight: 700; }
 
   .options-grid {
-    display: flex; flex-wrap: wrap; gap: 9px;
-    max-width: 560px; width: 100%; margin-bottom: 14px;
+    display: flex; flex-wrap: wrap; gap: 7px;
+    max-width: 560px; width: 100%; margin-bottom: 10px;
   }
   .option-pill {
-    padding: 11px 18px; border-radius: 100px;
+    padding: 8px 14px; border-radius: 100px;
     background: white; border: 1.5px solid var(--border);
-    font-size: 15px; font-weight: 600; color: var(--text);
-    box-shadow: 0 1px 4px rgba(0,0,0,.05);
+    font-size: 13px; font-weight: 600; color: var(--text);
+    box-shadow: 0 1px 3px rgba(0,0,0,.05);
   }
 
   .water-quote {
-    width: 100%; max-width: 560px; background: white; border-radius: 16px;
+    width: 100%; max-width: 560px; background: white; border-radius: 14px;
     border-left: 4px solid var(--cognitive);
     border-top: 1px solid var(--border);
     border-right: 1px solid var(--border);
     border-bottom: 1px solid var(--border);
-    padding: 18px 22px; margin-bottom: 14px;
-    box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    padding: 13px 16px; margin-bottom: 10px;
+    box-shadow: 0 1px 8px rgba(0,0,0,.05);
   }
-  .water-drop { font-size: 26px; margin-bottom: 8px; }
+  .water-drop { font-size: 22px; margin-bottom: 6px; }
   .water-text {
-    font-size: clamp(18px,3.2vw,26px); font-weight: 800; font-style: italic;
-    color: var(--text); line-height: 1.2; margin-bottom: 10px;
+    font-size: clamp(16px,2.8vw,22px); font-weight: 800; font-style: italic;
+    color: var(--text); line-height: 1.2; margin-bottom: 8px;
   }
   .water-sub {
-    font-size: clamp(14px,1.8vw,16px); color: var(--muted); line-height: 1.65;
+    font-size: clamp(12px,1.6vw,14px); color: var(--muted); line-height: 1.55;
   }
   .water-sub strong { color: var(--text); font-weight: 700; }
 
   .pathway-nodes {
-    display: flex; align-items: center; flex-wrap: wrap; gap: 7px;
+    display: flex; align-items: center; flex-wrap: wrap; gap: 6px;
     max-width: 560px; width: 100%;
   }
   .p-node {
-    padding: 8px 16px; border-radius: 100px; font-size: 13px; font-weight: 700;
+    padding: 6px 12px; border-radius: 100px; font-size: 12px; font-weight: 700;
     background: white; border: 2px solid var(--c); color: var(--c);
   }
-  .p-arrow { color: var(--muted); font-size: 16px; opacity: .4; }
+  .p-arrow { color: var(--muted); font-size: 14px; opacity: .4; }
 
   /* ══ PILLAR SLIDES ═══════════════════════════════════════════ */
   #s2 { background: var(--phys-bg); }
@@ -216,48 +216,48 @@
   #s6 { background: var(--rec-bg);  }
 
   .pillar-badge {
-    display: inline-flex; align-items: center; gap: 8px;
-    padding: 6px 14px; border-radius: 100px; font-size: 11px;
+    display: inline-flex; align-items: center; gap: 7px;
+    padding: 5px 12px; border-radius: 100px; font-size: 10px;
     font-weight: 700; letter-spacing: .15em; text-transform: uppercase;
-    margin-bottom: 7px; background: white; border: 2px solid;
+    margin-bottom: 5px; background: white; border: 2px solid;
   }
-  .pillar-badge .dot { width: 7px; height: 7px; border-radius: 50%; }
+  .pillar-badge .dot { width: 6px; height: 6px; border-radius: 50%; }
 
   .pillar-title {
-    font-size: clamp(18px,3.2vw,26px); font-weight: 800;
-    line-height: 1.15; color: var(--text); margin-bottom: 3px;
+    font-size: clamp(16px,2.8vw,22px); font-weight: 800;
+    line-height: 1.15; color: var(--text); margin-bottom: 2px;
   }
   .pillar-subtitle {
-    font-size: clamp(13px,1.7vw,15px); color: var(--muted);
-    font-weight: 400; margin-bottom: 10px; line-height: 1.45; max-width: 520px;
+    font-size: clamp(12px,1.5vw,13px); color: var(--muted);
+    font-weight: 400; margin-bottom: 8px; line-height: 1.4; max-width: 520px;
   }
 
   .themes-grid {
     display: grid; grid-template-columns: 1fr 1fr;
-    gap: 8px; width: 100%; max-width: 580px;
+    gap: 6px; width: 100%; max-width: 580px;
   }
   @media (max-width: 380px) { .themes-grid { grid-template-columns: 1fr; } }
 
   .theme-item {
-    display: flex; align-items: flex-start; gap: 10px;
-    background: white; border-radius: 12px;
-    padding: 13px 14px; border: 1px solid var(--border);
-    box-shadow: 0 1px 4px rgba(0,0,0,.05);
+    display: flex; align-items: flex-start; gap: 8px;
+    background: white; border-radius: 10px;
+    padding: 9px 10px; border: 1px solid var(--border);
+    box-shadow: 0 1px 3px rgba(0,0,0,.04);
   }
   .theme-check {
-    width: 30px; height: 30px; border-radius: 8px; flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center; font-size: 15px;
+    width: 24px; height: 24px; border-radius: 6px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center; font-size: 13px;
   }
   .theme-text {
-    font-size: clamp(13px,1.7vw,15px); color: var(--text);
-    font-weight: 500; line-height: 1.4;
+    font-size: clamp(11px,1.5vw,13px); color: var(--text);
+    font-weight: 500; line-height: 1.35;
   }
 
   .activities-row {
-    margin-top: 9px; display: flex; gap: 8px; flex-wrap: wrap; max-width: 580px;
+    margin-top: 7px; display: flex; gap: 6px; flex-wrap: wrap; max-width: 580px;
   }
   .activity-chip {
-    padding: 8px 16px; border-radius: 100px; font-size: 13px; font-weight: 600;
+    padding: 6px 12px; border-radius: 100px; font-size: 12px; font-weight: 600;
     background: white; border: 1.5px solid var(--border); color: var(--muted);
   }
 
@@ -417,7 +417,7 @@
     </div>
     <div class="friendship-reframe anim">
       <span class="reframe-icon">👥</span>
-      <p>Think about friendship. Rely on one person for everything and life becomes fragile. <strong>Several genuine friendships? You're held.</strong> Each supports you differently. The others carry you when one can't.</p>
+      <p>Think about friendship. Rely on one person for everything and life becomes fragile. <strong>Several friends? You're held.</strong> Each supports you differently. When one can't, the others do.</p>
     </div>
     <div class="watermark">realigncoaching.com</div>
   </section>
@@ -650,3 +650,4 @@
 </script>
 </body>
 </html>
+
